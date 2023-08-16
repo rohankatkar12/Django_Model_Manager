@@ -1,0 +1,23 @@
+1. Define model table in models.py
+2. Create model manager for predefined model table in models.py
+3. call model manager in model table
+4. define admin objects manager
+
+
+
+#To check query after migrations
+student = Student.objects.all()
+student.count()
+>>100
+
+for i in student[:10]:
+    i.is_deleted = True
+    i.save()
+
+student = Student.objects.all()
+student.count()
+>>90
+
+student = Student.admin_objects.all()
+student.count()
+>>100
